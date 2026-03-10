@@ -87,7 +87,10 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
           <MenuItem title="Tilbud" description="Spar på din behandling." />
         </div>
         <div className="border-gray-100">
-          <MenuItem title="About" description="Historien om Shear Room." />
+          <MenuItem 
+            title="About" 
+            description="Historien om Fresh Cut." 
+          />
         </div>
       </div>
 

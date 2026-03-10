@@ -5,7 +5,6 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
-  // Luk menuen når der klikkes udenfor
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -26,11 +25,11 @@ const Header: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-12">
           
-          <nav ref={navRef} className="flex-1 flex justify-between items-center pt-8 pb-4 w-full relative">
+          <nav ref={navRef} className="flex-1 flex justify-between items-center pt-10 pb-4 w-full relative">
             {/* Logo */}
             <div className="logo">
               <h1 className="text-xl md:text-2xl font-extrabold tracking-widest m-0 text-[#1a1a1a] uppercase font-serif">
-                THE SHEAR <span className="text-[#d4a373]">ROOM</span>
+                FRESH <span className="text-[#d4a373]">CUT</span>
               </h1>
             </div>
             
@@ -40,7 +39,6 @@ const Header: React.FC = () => {
                 Log ind
               </a>
               
-              {/* Call Circle Icon - Matches Hero border color, hover brown */}
               <div className="group w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center cursor-pointer bg-white hover:bg-[#d4a373] hover:border-[#d4a373] transition-all duration-300">
                 <img 
                   src="/icons/call-icon.svg" 
@@ -49,7 +47,6 @@ const Header: React.FC = () => {
                 />
               </div>
               
-              {/* Burger/X Icon - Matches Hero border, remains brown when open */}
               <div 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`group w-11 h-11 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer 
@@ -74,11 +71,9 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Dropdown Menu */}
             <Menu isOpen={isMenuOpen} />
           </nav>
 
-          {/* Højre del (tom spacer) */}
           <div className="hidden lg:block lg:flex-1"></div>
         </div>
       </div>

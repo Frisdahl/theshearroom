@@ -53,31 +53,30 @@ const Hero: React.FC = () => {
     >
       <div className="max-w-[1600px] mx-auto px-4 w-full flex flex-col h-full">
         <div className="flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-12 flex-1 h-full overflow-hidden">
-          {/* Venstre kolonne: Tekstindhold */}
-          <div className="flex-1 pt-32 lg:pt-36 pb-12 flex flex-col justify-between h-full">
-            <div className="flex-1 flex flex-col justify-center">
-              <h2 className="text-[#d4a373] text-base uppercase tracking-widest font-bold mb-3 font-sans">
-                Velkommen til The fresh{" "}
-                <span className="text-[#d4a373]">cut</span>
+          {/* Venstre kolonne: Tekstindhold med mere premium spacing (pt-56) */}
+          <div className="flex-1 pt-40 lg:pt-56 pb-12 flex flex-col justify-between h-full">
+            <div className="flex-1 flex flex-col justify-start">
+              <h2 className="text-[#d4a373] text-sm lg:text-base uppercase tracking-[0.2em] font-bold mb-6 font-sans">
+                Velkommen til Fresh Cut
               </h2>
-              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-[#1a1a1a] mb-5 font-serif">
-                Ultimativ pleje <br></br> for{" "}
-                <span className="text-[#d4a373]">mænd</span>
+              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] text-[#1a1a1a] mb-8 font-serif">
+                Forkæl dit hår <br></br>
+                <span className="text-[#d4a373]"> med ekspertise</span>
               </h1>
-              <p className="text-base lg:text-lg text-gray-600 leading-relaxed mb-6 max-w-lg font-sans">
+              <p className="text-base lg:text-lg text-gray-500 leading-relaxed mb-10 max-w-lg font-sans">
                 Førsteklasses klipning, skægtrimning og traditionel barbering
                 leveret af eksperter. Vi forener klassiske teknikker med moderne
                 stil.
               </p>
 
               {/* Happy Customers Section */}
-              <div className="flex items-center gap-4 mb-8">
+              <div className="flex items-center gap-4 mb-12">
                 <img
                   src="/icons/happy-customer.png"
                   alt="Happy customers"
                   className="h-10 w-auto object-contain"
                 />
-                <p className="text-[#1a1a1a] font-semibold text-sm lg:text-base font-sans">
+                <p className="text-[#1a1a1a] font-semibold text-sm lg:text-base font-sans italic opacity-80">
                   Elsket af over 200 tilfredse kunder
                 </p>
               </div>
@@ -85,7 +84,7 @@ const Hero: React.FC = () => {
               <div className="mb-6">
                 <button
                   ref={buttonRef}
-                  className="relative flex items-center bg-[#1a1a1a] rounded-full p-2 w-[210px] h-[64px] overflow-hidden group"
+                  className="relative flex items-center bg-[#1a1a1a] rounded-full p-2 w-[210px] h-[64px] overflow-hidden group shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div
                     ref={circleRef}
@@ -158,12 +157,11 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Højre kolonne: Billede - Shadow removed */}
-          <div className="flex-1 pt-8 pb-12 h-full hidden lg:block">
+          <div className="flex-1 pt-10 pb-12 h-full hidden lg:block">
             <div className="w-full h-full relative">
               <img
                 src="/images/hero-img.jpg"
-                alt="The Shear Room Barber Shop"
+                alt="Fresh Cut Barber Shop"
                 className="w-full h-full object-cover rounded-[2.5rem]"
               />
             </div>
