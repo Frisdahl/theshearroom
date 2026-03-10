@@ -10,8 +10,8 @@ module.exports = {
         'dark': '#1a1a1a',
       },
       fontFamily: {
-        'serif': ['Playfair Display', 'serif'],
-        'sans': ['Montserrat', 'sans-serif'],
+        'serif': ['Cormorant Garamond', 'serif'],
+        'sans': ['Manrope', 'sans-serif'],
       },
     },
   },

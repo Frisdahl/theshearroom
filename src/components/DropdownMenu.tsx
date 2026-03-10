@@ -109,7 +109,7 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
             <img 
               src="/icons/right-arrow.svg" 
               alt="arrow" 
-              className="w-5 h-5 lg:w-10 lg:h-10 invert -rotate-45 transition-transform duration-500 ease-out group-hover:rotate-0" 
+              className="w-5 h-5 lg:w-7 lg:h-7 invert -rotate-45 transition-transform duration-500 ease-out group-hover:rotate-0" 
             />
           </div>
         </div>

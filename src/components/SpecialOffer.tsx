@@ -20,7 +20,7 @@ const SpecialOffer: React.FC = () => {
           <div className="relative z-10 max-w-3xl">
             <div className="flex items-center justify-center gap-3 mb-8">
               <span className="w-2.5 h-2.5 rounded-full bg-[#d4a373] animate-pulse"></span>
-              <p className="text-white text-lg font-bold tracking-[0.2em] uppercase m-0">
+              <p className="text-white text-base font-semibold tracking-[0.2em] uppercase m-0">
                 Specielt tilbud
               </p>
             </div>

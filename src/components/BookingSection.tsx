@@ -1,15 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TrustedPoints from './TrustedPoints';
 import CtaButton from './CtaButton';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const BookingSection: React.FC = () => {
   const [location, setLocation] = useState<string>('');
   const [service, setService] = useState<string>('');
+  const sectionRef = useRef<HTMLElement>(null);
 
   const isButtonDisabled = !location || !service;
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 70%", // Start animation when 70% of viewport is reached
+        toggleActions: "play none none none"
+      }
+    });
+
+    // 1. Line animation (growing from left)
+    tl.fromTo(".trusted-point-line", 
+      { scaleX: 0 }, 
+      { scaleX: 1, duration: 0.8, stagger: 0.2, ease: "power2.out" }
+    );
+
+    // 2. Heading slide up
+    tl.fromTo(".trusted-point-heading", 
+      { y: "100%" }, 
+      { y: "0%", duration: 0.8, stagger: 0.2, ease: "power3.out" }, 
+      "-=0.6"
+    );
+
+    // 3. Text slide up
+    tl.fromTo(".trusted-point-text", 
+      { y: "100%" }, 
+      { y: "0%", duration: 0.8, stagger: 0.2, ease: "power3.out" }, 
+      "-=0.6"
+    );
+
+    // 4. Form fade in
+    tl.fromTo(".booking-form-container",
+      { opacity: 0, x: 30 },
+      { opacity: 1, x: 0, duration: 1, ease: "power3.out" },
+      "-=0.8"
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
+
   return (
-    <section className="relative w-full py-24 bg-cover bg-center" style={{ backgroundImage: "url('/images/highlight-img-4.jpg')" }}>
+    <section 
+      ref={sectionRef}
+      className="relative w-full py-24 bg-cover bg-center" 
+      style={{ backgroundImage: "url('/images/highlight-img-4.jpg')" }}
+    >
       {/* Overlay to darken background image */}
       <div className="absolute inset-0 bg-black/60"></div>
       
@@ -18,17 +70,17 @@ const BookingSection: React.FC = () => {
         <div className="text-white pt-10">
           <div className="flex items-center gap-3 mb-10">
             <span className="w-2 h-2 rounded-full bg-[#d4a373] animate-pulse"></span>
-            <p className="text-white text-lg font-bold tracking-[0.2em] uppercase m-0">Book tid nu</p>
+            <p className="text-white text-base font-semibold tracking-[0.2em] uppercase m-0">Book tid nu</p>
           </div>
           
-          <div className="space-y-4">
+          <div className="">
             <TrustedPoints 
               paragraph="Stilfulde makeovers leveret" 
               heading="5000+" 
             />
             <TrustedPoints 
               paragraph="Tilbagevendende kunder, der stoler på vore styling" 
-              heading="30%" 
+              heading="30+" 
             />
             <TrustedPoints 
               paragraph="Ekspertbarberer og stylister til rådighed" 
@@ -37,9 +89,9 @@ const BookingSection: React.FC = () => {
           </div>
         </div>
         
-        {/* Right Column - Booking Form Container (Smaller width) */}
-        <div className="flex justify-center lg:justify-end w-full">
-          <div className="bg-white p-8 lg:p-12 rounded-2xl shadow-2xl w-full max-w-xl">
+        {/* Right Column - Booking Form Container */}
+        <div className="flex justify-center lg:justify-end w-full booking-form-container">
+          <div className="bg-white p-8 lg:p-12 rounded-2xl shadow-2xl w-full max-w-xl border border-gray-100">
             <h2 className="text-3xl font-extrabold text-[#1a1a1a] mb-8 font-serif">
               Bestil din tid nu
             </h2>
@@ -140,7 +192,6 @@ const BookingSection: React.FC = () => {
                 </label>
               </div>
               
-              {/* Using the new CtaButton Component with disabled prop */}
               <div className="mt-4">
                 <CtaButton 
                   text="fortsæt til booking" 

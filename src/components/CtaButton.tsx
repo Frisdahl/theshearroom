@@ -6,6 +6,7 @@ interface CtaButtonProps {
   className?: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  variant?: 'dark' | 'white';
 }
 
 const CtaButton: React.FC<CtaButtonProps> = ({
@@ -13,6 +14,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({
   className = "",
   disabled = false,
   onClick,
+  variant = 'dark'
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
@@ -29,11 +31,14 @@ const CtaButton: React.FC<CtaButtonProps> = ({
     // Create timeline
     timelineRef.current = gsap.timeline({ paused: true });
 
+    // Distance calculation: Total width - circle width - double padding (p-2 = 8px)
+    // Using a function for x to handle dynamic widths
     timelineRef.current.to(
       circle,
       {
         x: () => btn.offsetWidth - circle.offsetWidth - 16,
-        duration: 0.4,
+        rotation: 360,
+        duration: 0.5,
         ease: "power2.inOut",
       },
       0,
@@ -42,8 +47,8 @@ const CtaButton: React.FC<CtaButtonProps> = ({
     timelineRef.current.to(
       txt,
       {
-        x: () => -(circle.offsetWidth / 2),
-        duration: 0.4,
+        x: -60,
+        duration: 0.5,
         ease: "power2.inOut",
       },
       0,
@@ -66,39 +71,42 @@ const CtaButton: React.FC<CtaButtonProps> = ({
     };
   }, [disabled]);
 
-  // Reset animation if it becomes disabled while hovered
-  useEffect(() => {
-    if (disabled && timelineRef.current) {
-      timelineRef.current.reverse();
-    }
-  }, [disabled]);
+  const isWhite = variant === 'white';
 
   return (
     <button
       ref={buttonRef}
       disabled={disabled}
       onClick={onClick}
-      className={`relative flex items-center rounded-full p-2 h-[64px] w-full overflow-hidden transition-all duration-300 
+      className={`relative flex items-center rounded-full p-2 h-[64px] overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl
         ${
           disabled
             ? "bg-gray-400 cursor-not-allowed"
-            : "bg-[#1a1a1a] group hover:bg-[#1a1a1a]"
+            : isWhite 
+              ? "bg-white group hover:bg-white" 
+              : "bg-[#1a1a1a] group hover:bg-[#1a1a1a]"
         } ${className}`}
     >
       {/* Circle with arrow */}
       <div
         ref={circleRef}
-        className={`w-12 h-12 p-3 rounded-full flex items-center justify-center z-10 transition-colors duration-300 
-          ${disabled ? "bg-gray-300" : "bg-white group-hover:bg-[#d4a373]"}`}
+        className={`w-12 h-12 rounded-full flex items-center justify-center z-10 transition-colors duration-300 
+          ${disabled 
+            ? "bg-gray-300" 
+            : isWhite 
+              ? "bg-[#1a1a1a] group-hover:bg-[#d4a373]" 
+              : "bg-white group-hover:bg-[#d4a373]"}`}
       >
         <img
           src="/icons/right-arrow.svg"
           alt="arrow"
-          className={`w-full h-full transition-all duration-300 -rotate-45 
+          className={`w-6 h-6 transition-all duration-300 -rotate-45 
             ${
               disabled
                 ? "opacity-40"
-                : "group-hover:brightness-0 group-hover:invert"
+                : isWhite 
+                  ? "brightness-0 invert group-hover:invert-0" 
+                  : "group-hover:brightness-0 group-hover:invert"
             }`}
         />
       </div>
@@ -106,7 +114,8 @@ const CtaButton: React.FC<CtaButtonProps> = ({
       {/* Text */}
       <span
         ref={textRef}
-        className={`ml-6 font-bold uppercase tracking-[2px] text-xs z-0 pointer-events-none transition-colors duration-300 text-white`}
+        className={`ml-6 font-bold uppercase tracking-[2px] text-sm z-0 pointer-events-none transition-colors duration-300 
+          ${isWhite ? "text-[#1a1a1a]" : "text-white"}`}
       >
         {text}
       </span>

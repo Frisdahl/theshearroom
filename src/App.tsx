@@ -6,6 +6,8 @@ import ServicesMenu from './components/ServicesMenu';
 import MarqueeSlider from './components/MarqueeSlider';
 import SpecialOffer from './components/SpecialOffer';
 import Reviews from './components/Reviews';
+import Locations from './components/Locations';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -19,13 +21,9 @@ function App() {
         <MarqueeSlider />
         <SpecialOffer />
         <Reviews />
-        {/* Other sections will go here */}
+        <Locations />
       </main>
-      <footer>
-        <div className="container">
-          <p>&copy; {new Date().getFullYear()} FRESH CUT. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
