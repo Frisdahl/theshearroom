@@ -81,7 +81,7 @@ const ServicesMenu: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white relative">
+    <section id="services" ref={sectionRef} className="py-24 bg-white relative">
       <div className="max-w-[1600px] mx-auto px-4">
         {/* Section Header */}
         <div className="mb-16">

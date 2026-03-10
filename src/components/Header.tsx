@@ -15,14 +15,11 @@ const Header: React.FC = () => {
       const scrollDirection = currentScrollY > lastScrollY.current ? 'down' : 'up';
       
       if (currentScrollY < 80) {
-        // We are at the very top - switch to hero instantly
         setHeaderState('hero');
       } else if (scrollDirection === 'down') {
-        // Scrolling down - hide header
         setHeaderState('hidden');
         setIsMenuOpen(false);
       } else if (scrollDirection === 'up') {
-        // Scrolling up - show sticky glass header
         setHeaderState('sticky');
       }
       
@@ -53,7 +50,6 @@ const Header: React.FC = () => {
   const getHeaderClasses = () => {
     switch (headerState) {
       case 'hero':
-        // No transitions here to make the background disappear instantly when entering hero state
         return 'absolute top-0 left-0 w-full pt-0 bg-transparent translate-y-0 opacity-100';
       case 'hidden':
         return 'fixed top-0 left-0 w-full pt-0 bg-white/80 backdrop-blur-md shadow-sm -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out';
@@ -122,7 +118,7 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            <Menu isOpen={isMenuOpen} />
+            <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
           </nav>
         </div>
       </div>

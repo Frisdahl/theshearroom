@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
                   className="w-10 h-10 lg:w-12 lg:h-12"
                 />
                 <div className="flex flex-col justify-center">
-                  <p className="text-[#1a1a1a] font-bold text-[10px] lg:text-[11px] leading-tight uppercase font-sans tracking-wide">
+                  <p className="text-[#1a1a1a] font-bold text-sm leading-tight font-sans tracking-wide">
                     Kunde
                     <br />
                     Favorit
@@ -115,8 +115,8 @@ const Hero: React.FC = () => {
                   <h4 className="text-lg lg:text-xl font-bold text-[#1a1a1a] m-0 font-sans leading-none">
                     100%
                   </h4>
-                  <p className="text-[9px] text-gray-500 uppercase font-bold mt-2.5 font-sans tracking-wider">
-                    Besvarelse
+                  <p className="text-xs text-gray-500 font-semibold mt-2.5 font-sans tracking-wider">
+                    Responsrate
                   </p>
                 </div>
                 <div className="text-center flex flex-col items-center">
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
                   <h4 className="text-lg lg:text-xl font-bold text-[#1a1a1a] m-0 font-sans leading-none">
                     183
                   </h4>
-                  <p className="text-[9px] text-gray-500 uppercase font-bold mt-2.5 font-sans tracking-wider">
+                  <p className="text-xs text-gray-500 font-semibold mt-2.5 font-sans tracking-wider">
                     Anmeldelser
                   </p>
                 </div>

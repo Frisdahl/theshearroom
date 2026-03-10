@@ -4,9 +4,10 @@ import gsap from 'gsap';
 
 interface MenuProps {
   isOpen: boolean;
+  onClose: () => void;
 }
 
-const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
+const DropdownMenu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -14,9 +15,6 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
 
     if (isOpen) {
       const tl = gsap.timeline();
-
-      // Step 1: Smoothly slide down and scale the container from the top
-      // We use display: block first, then animate opacity and scale
       tl.set(menuRef.current, { display: "block" });
       tl.to(menuRef.current, {
         opacity: 1,
@@ -27,7 +25,6 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
         ease: "power3.out"
       });
 
-      // Step 2: Slide up text elements
       tl.fromTo(".menu-item-title", 
         { y: "100%" }, 
         { y: "0%", duration: 0.4, stagger: 0.04, ease: "power2.out" }, 
@@ -40,7 +37,6 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
         "-=0.3"
       );
     } else {
-      // Exit Animation: Scale up and fade out
       gsap.to(menuRef.current, {
         opacity: 0,
         y: -10,
@@ -55,6 +51,10 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
     }
   }, [isOpen]);
 
+  const handleLinkClick = () => {
+    onClose();
+  };
+
   return (
     <div 
       ref={menuRef}
@@ -68,34 +68,58 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
       className="absolute top-[calc(100%+0.75rem)] left-0 w-full bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 z-[2000]"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8">
-        {/* Række 1 */}
         <div className="border-b md:border-r border-gray-100">
-          <MenuItem title="Services" description="Klip, barbering og pleje." />
+          <MenuItem 
+            title="Services" 
+            description="Klip, barbering og pleje." 
+            href="#services"
+            onClick={handleLinkClick}
+          />
         </div>
         <div className="border-b lg:border-r border-gray-100">
-          <MenuItem title="Lokationer" description="Find din nærmeste salon." />
+          <MenuItem 
+            title="Lokationer" 
+            description="Find din nærmeste salon." 
+            href="#lokationer"
+            onClick={handleLinkClick}
+          />
         </div>
         <div className="border-b border-gray-100">
-          <MenuItem title="Kontakt" description="Ring eller skriv her." />
+          <MenuItem 
+            title="Kontakt" 
+            description="Ring eller skriv her." 
+            href="#booking"
+            onClick={handleLinkClick}
+          />
         </div>
 
-        {/* Række 2 */}
         <div className="border-b md:border-b-0 md:border-r border-gray-100">
-          <MenuItem title="Anmeldelser" description="Se hvad kunder siger." />
+          <MenuItem 
+            title="Anmeldelser" 
+            description="Se hvad kunder siger." 
+            href="#anmeldelser"
+            onClick={handleLinkClick}
+          />
         </div>
         <div className="border-b md:border-b-0 lg:border-r border-gray-100">
-          <MenuItem title="Tilbud" description="Spar på din behandling." />
+          <MenuItem 
+            title="Tilbud" 
+            description="Spar på din behandling." 
+            href="#tilbud"
+            onClick={handleLinkClick}
+          />
         </div>
         <div className="border-gray-100">
           <MenuItem 
             title="About" 
             description="Historien om Fresh Cut." 
+            href="#about"
+            onClick={handleLinkClick}
           />
         </div>
       </div>
 
-      {/* Book Nu Footer */}
-      <div className="relative w-full h-32 lg:h-64 rounded-2xl overflow-hidden group cursor-pointer">
+      <a href="#booking" onClick={handleLinkClick} className="relative w-full h-32 lg:h-64 rounded-2xl overflow-hidden group cursor-pointer block no-underline">
         <img 
           src="/images/footer-bg.jpg" 
           alt="Book nu" 
@@ -113,7 +137,7 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen }) => {
             />
           </div>
         </div>
-      </div>
+      </a>
     </div>
   );
 };

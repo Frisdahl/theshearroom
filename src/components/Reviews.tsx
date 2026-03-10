@@ -76,7 +76,7 @@ const Reviews: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section id="anmeldelser" className="py-24 bg-white">
       <div className="container">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">

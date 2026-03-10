@@ -8,7 +8,7 @@ const Locations: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#202121] text-white">
+    <section id="lokationer" className="py-24 bg-[#202121] text-white">
       <div className="container">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">

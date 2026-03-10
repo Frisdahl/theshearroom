@@ -17,7 +17,7 @@ const MarqueeSlider: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-white overflow-hidden space-y-8">
+    <section id="about" className="py-24 bg-white overflow-hidden space-y-8">
       {/* Row 1: Right to Left */}
       <div className="relative flex">
         <div className="flex animate-marquee whitespace-nowrap">

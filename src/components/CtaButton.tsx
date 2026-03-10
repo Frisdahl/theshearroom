@@ -6,7 +6,7 @@ interface CtaButtonProps {
   className?: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  variant?: 'dark' | 'white';
+  variant?: "dark" | "white";
 }
 
 const CtaButton: React.FC<CtaButtonProps> = ({
@@ -14,7 +14,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({
   className = "",
   disabled = false,
   onClick,
-  variant = 'dark'
+  variant = "dark",
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
@@ -71,7 +71,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({
     };
   }, [disabled]);
 
-  const isWhite = variant === 'white';
+  const isWhite = variant === "white";
 
   return (
     <button
@@ -82,8 +82,8 @@ const CtaButton: React.FC<CtaButtonProps> = ({
         ${
           disabled
             ? "bg-gray-400 cursor-not-allowed"
-            : isWhite 
-              ? "bg-white group hover:bg-white" 
+            : isWhite
+              ? "bg-white group hover:bg-white"
               : "bg-[#1a1a1a] group hover:bg-[#1a1a1a]"
         } ${className}`}
     >
@@ -91,11 +91,13 @@ const CtaButton: React.FC<CtaButtonProps> = ({
       <div
         ref={circleRef}
         className={`w-12 h-12 rounded-full flex items-center justify-center z-10 transition-colors duration-300 
-          ${disabled 
-            ? "bg-gray-300" 
-            : isWhite 
-              ? "bg-[#1a1a1a] group-hover:bg-[#d4a373]" 
-              : "bg-white group-hover:bg-[#d4a373]"}`}
+          ${
+            disabled
+              ? "bg-gray-300"
+              : isWhite
+                ? "bg-[#1a1a1a] group-hover:bg-[#d4a373]"
+                : "bg-white group-hover:bg-[#d4a373]"
+          }`}
       >
         <img
           src="/icons/right-arrow.svg"
@@ -104,8 +106,8 @@ const CtaButton: React.FC<CtaButtonProps> = ({
             ${
               disabled
                 ? "opacity-40"
-                : isWhite 
-                  ? "brightness-0 invert group-hover:invert-0" 
+                : isWhite
+                  ? "brightness-0 invert group-hover:invert-0"
                   : "group-hover:brightness-0 group-hover:invert"
             }`}
         />
@@ -114,7 +116,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({
       {/* Text */}
       <span
         ref={textRef}
-        className={`ml-6 font-bold uppercase tracking-[2px] text-sm z-0 pointer-events-none transition-colors duration-300 
+        className={`ml-6 font-bold tracking-[2px] text-sm z-0 pointer-events-none transition-colors duration-300 
           ${isWhite ? "text-[#1a1a1a]" : "text-white"}`}
       >
         {text}
