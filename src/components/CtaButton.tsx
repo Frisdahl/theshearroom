@@ -5,12 +5,14 @@ interface CtaButtonProps {
   text: string;
   className?: string;
   disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const CtaButton: React.FC<CtaButtonProps> = ({
   text,
   className = "",
   disabled = false,
+  onClick,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
@@ -75,6 +77,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({
     <button
       ref={buttonRef}
       disabled={disabled}
+      onClick={onClick}
       className={`relative flex items-center rounded-full p-2 h-[64px] w-full overflow-hidden transition-all duration-300 
         ${
           disabled

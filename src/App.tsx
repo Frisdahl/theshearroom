@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import BookingSection from './components/BookingSection';
-import Menu from './components/Menu';
+import ServicesMenu from './components/ServicesMenu';
 import './App.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <main>
         <Hero />
         <BookingSection />
-        <Menu />
+        <ServicesMenu />
         {/* Other sections will go here */}
       </main>
       <footer>
