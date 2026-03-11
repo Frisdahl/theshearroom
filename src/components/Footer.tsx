@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                 Dit look
               </p>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-10 font-serif leading-tight text-left max-w-sm">
+            <h2 className="text-3xl md:text-5xl font-semibold text-white mb-10 font-urbanist leading-tight text-left max-w-sm">
               Altid her for
               <br />
               vores klienter
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
 
           {/* Centered Text Content */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className="text-6xl md:text-9xl font-black text-white uppercase tracking-[0.2em] font-serif opacity-90 drop-shadow-2xl">
+            <h2 className="text-6xl md:text-9xl font-black text-white uppercase tracking-[0.2em] font-urbanist opacity-90 drop-shadow-2xl">
               Fresh <span className="text-[#d4a373]">cut</span>
             </h2>
           </div>

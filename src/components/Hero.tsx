@@ -45,21 +45,14 @@ const Hero: React.FC = () => {
           {/* Venstre kolonne: Tekstindhold */}
           <div className="flex-1 pt-32 md:pt-40 lg:pt-56 pb-12 flex flex-col justify-between h-full">
             <div className="flex-1 flex flex-col justify-center lg:justify-start">
-              <h2
-                ref={badgeRef}
-                className="text-[#d4a373] text-sm lg:text-base uppercase tracking-[0.2em] font-bold mb-6 font-sans"
-              >
-                Velkommen til Fresh Cut
-              </h2>
-
               <div className="mb-8">
                 <div className="overflow-hidden pb-2 -mb-2">
-                  <h1 className="hero-line-inner text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.2] text-[#1a1a1a] font-serif py-1">
+                  <h1 className="hero-line-inner text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.2] text-[#1a1a1a] font-urbanist py-1">
                     Ultimativ pleje
                   </h1>
                 </div>
                 <div className="overflow-hidden pb-2 -mb-2">
-                  <h1 className="hero-line-inner text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.2] text-[#1a1a1a] font-serif py-1">
+                  <h1 className="hero-line-inner text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.2] text-[#1a1a1a] font-urbanist py-1">
                     for <span className="text-[#d4a373]">mænd</span>
                   </h1>
                 </div>

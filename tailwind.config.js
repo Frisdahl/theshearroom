@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         'serif': ['Cormorant Garamond', 'serif'],
         'sans': ['Manrope', 'sans-serif'],
+        'heading': ['Urbanist', 'sans-serif'],
       },
     },
   },

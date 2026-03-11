@@ -16,39 +16,43 @@ const SpecialOffer: React.FC = () => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top 75%",
-        toggleActions: "play none none none"
-      }
+        toggleActions: "play none none none",
+      },
     });
 
     // 1. Container reveal (scale and fade)
-    tl.fromTo(containerRef.current,
+    tl.fromTo(
+      containerRef.current,
       { opacity: 0, scale: 0.95 },
-      { opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
+      { opacity: 1, scale: 1, duration: 1, ease: "power3.out" },
     );
 
     // 2. Badge fade in
-    tl.fromTo(".offer-badge",
+    tl.fromTo(
+      ".offer-badge",
       { opacity: 0, y: 15 },
       { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-      "-=0.6"
+      "-=0.6",
     );
 
     // 3. Heading slide up (Split text style)
-    tl.fromTo(".offer-title",
+    tl.fromTo(
+      ".offer-title",
       { y: "100%" },
       { y: "0%", duration: 0.8, ease: "power3.out" },
-      "-=0.4"
+      "-=0.4",
     );
 
     // 4. Button fade/slide in
-    tl.fromTo(".offer-cta",
+    tl.fromTo(
+      ".offer-cta",
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-      "-=0.4"
+      "-=0.4",
     );
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
@@ -77,7 +81,7 @@ const SpecialOffer: React.FC = () => {
             </div>
 
             <div className="overflow-hidden mb-12">
-              <h2 className="offer-title text-4xl md:text-6xl font-extrabold text-white max-w-xl font-serif leading-[1.1] m-0 py-1">
+              <h2 className="offer-title text-4xl md:text-6xl font-bold text-white max-w-2xl font-urbanist leading-[1.2] m-0 py-1">
                 Book 2+ dage i forvejen og få 15% rabat
               </h2>
             </div>

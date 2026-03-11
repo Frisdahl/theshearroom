@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import MenuItem from './MenuItem';
-import gsap from 'gsap';
+import React, { useEffect, useRef } from "react";
+import MenuItem from "./MenuItem";
+import gsap from "gsap";
 
 interface MenuProps {
   isOpen: boolean;
@@ -22,19 +22,21 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
         scaleY: 1,
         pointerEvents: "auto",
         duration: 0.5,
-        ease: "power3.out"
+        ease: "power3.out",
       });
 
-      tl.fromTo(".menu-item-title", 
-        { y: "100%" }, 
-        { y: "0%", duration: 0.4, stagger: 0.04, ease: "power2.out" }, 
-        "-=0.3"
+      tl.fromTo(
+        ".menu-item-title",
+        { y: "100%" },
+        { y: "0%", duration: 0.4, stagger: 0.04, ease: "power2.out" },
+        "-=0.3",
       );
 
-      tl.fromTo(".menu-item-desc", 
-        { y: "100%" }, 
-        { y: "0%", duration: 0.4, stagger: 0.04, ease: "power2.out" }, 
-        "-=0.3"
+      tl.fromTo(
+        ".menu-item-desc",
+        { y: "100%" },
+        { y: "0%", duration: 0.4, stagger: 0.04, ease: "power2.out" },
+        "-=0.3",
       );
     } else {
       gsap.to(menuRef.current, {
@@ -46,7 +48,7 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
         ease: "power2.in",
         onComplete: () => {
           if (menuRef.current) menuRef.current.style.display = "none";
-        }
+        },
       });
     }
   }, [isOpen]);
@@ -56,84 +58,88 @@ const DropdownMenu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div 
+    <div
       ref={menuRef}
-      style={{ 
-        opacity: 0, 
-        pointerEvents: "none", 
-        transform: "translateY(-10px) scaleY(0.95)", 
+      style={{
+        opacity: 0,
+        pointerEvents: "none",
+        transform: "translateY(-10px) scaleY(0.95)",
         transformOrigin: "top",
-        display: "none"
+        display: "none",
       }}
       className="absolute top-[calc(100%+0.75rem)] left-0 w-full bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 z-[2000]"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8">
         <div className="border-b md:border-r border-gray-100">
-          <MenuItem 
-            title="Services" 
-            description="Klip, barbering og pleje." 
+          <MenuItem
+            title="Services"
+            description="Klip, barbering og pleje."
             href="#services"
             onClick={handleLinkClick}
           />
         </div>
         <div className="border-b lg:border-r border-gray-100">
-          <MenuItem 
-            title="Lokationer" 
-            description="Find din nærmeste salon." 
+          <MenuItem
+            title="Lokationer"
+            description="Find din nærmeste salon."
             href="#lokationer"
             onClick={handleLinkClick}
           />
         </div>
         <div className="border-b border-gray-100">
-          <MenuItem 
-            title="Kontakt" 
-            description="Ring eller skriv her." 
+          <MenuItem
+            title="Kontakt"
+            description="Ring eller skriv her."
             href="#booking"
             onClick={handleLinkClick}
           />
         </div>
 
         <div className="border-b md:border-b-0 md:border-r border-gray-100">
-          <MenuItem 
-            title="Anmeldelser" 
-            description="Se hvad kunder siger." 
+          <MenuItem
+            title="Anmeldelser"
+            description="Se hvad kunder siger."
             href="#anmeldelser"
             onClick={handleLinkClick}
           />
         </div>
         <div className="border-b md:border-b-0 lg:border-r border-gray-100">
-          <MenuItem 
-            title="Tilbud" 
-            description="Spar på din behandling." 
+          <MenuItem
+            title="Tilbud"
+            description="Spar på din behandling."
             href="#tilbud"
             onClick={handleLinkClick}
           />
         </div>
         <div className="border-gray-100">
-          <MenuItem 
-            title="About" 
-            description="Historien om Fresh Cut." 
+          <MenuItem
+            title="About"
+            description="Historien om Fresh Cut."
             href="#about"
             onClick={handleLinkClick}
           />
         </div>
       </div>
 
-      <a href="#booking" onClick={handleLinkClick} className="relative w-full h-32 lg:h-64 rounded-2xl overflow-hidden group cursor-pointer block no-underline">
-        <img 
-          src="/images/footer-bg.jpg" 
-          alt="Book nu" 
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700" 
+      <a
+        href="#booking"
+        onClick={handleLinkClick}
+        className="relative w-full h-32 lg:h-64 rounded-2xl overflow-hidden group cursor-pointer block no-underline"
+      >
+        <img
+          src="/images/footer-bg.jpg"
+          alt="Book nu"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="flex items-center gap-3 lg:gap-5">
-            <span className="text-white font-extrabold text-2xl lg:text-5xl uppercase tracking-[4px] font-serif transition-transform duration-500">
+            <span className="text-white font-extrabold text-2xl lg:text-5xl uppercase tracking-[4px] font-urbanist transition-transform duration-500">
               Book nu
             </span>
-            <img 
-              src="/icons/right-arrow.svg" 
-              alt="arrow" 
-              className="w-5 h-5 lg:w-7 lg:h-7 invert -rotate-45 transition-transform duration-500 ease-out group-hover:rotate-0" 
+            <img
+              src="/icons/right-arrow.svg"
+              alt="arrow"
+              className="w-5 h-5 lg:w-7 lg:h-7 invert -rotate-45 transition-transform duration-500 ease-out group-hover:rotate-0"
             />
           </div>
         </div>

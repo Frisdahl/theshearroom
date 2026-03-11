@@ -99,7 +99,7 @@ const BookingSection: React.FC = () => {
         {/* Right Column - Booking Form Container */}
         <div className="flex justify-center lg:justify-end w-full booking-form-container">
           <div className="bg-white p-8 lg:p-12 rounded-2xl shadow-2xl w-full max-w-xl border border-gray-100">
-            <h2 className="text-3xl font-extrabold text-[#1a1a1a] mb-8 font-serif">
+            <h2 className="text-3xl font-extrabold text-[#1a1a1a] mb-8 font-urbanist">
               Bestil din tid nu
             </h2>
 
